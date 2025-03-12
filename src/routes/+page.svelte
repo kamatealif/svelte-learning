@@ -4,8 +4,12 @@
 
     let status: "OPEN" | "CLOSED" = $state("OPEN")
 
-    function toggle(){
-        status = status === "OPEN" ? "CLOSED" : "OPEN";
+    // function toggle(){
+    //     status = status === "OPEN" ? "CLOSED" : "OPEN";
+    // }
+
+    function onclick(){
+        status = status === 'OPEN' ? 'CLOSED' : 'OPEN'
     }
 </script>
 
@@ -15,7 +19,19 @@
 
 
 <p>The store is now {status}</p>
-<button onclick={toggle}>Toggle Status</button>
+<button onclick={onclick}>Toggle Status</button>
+
+<!-- COOL STUFF -->
+<!-- <button {onclick}>Toggle Status</button>
+-->
+
+<button
+    onclick={()=>{
+        status = status === 'OPEN' ? 'CLOSED' : 'OPEN';
+    }}
+>
+    Toggle Status /- inline function
+</button>
 
 
 <style>
