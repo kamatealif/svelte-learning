@@ -9,6 +9,7 @@
 	});
 </script>
 
+<Header/>
 <main>
 	<p>Step : {formState.step}</p>
 
