@@ -1,44 +1,59 @@
-<script lang='ts'>
-    import Header from "./Header.svelte";
-    let name = $state('')
+<script lang="ts">
+	import Header from './Header.svelte';
 
-    let status: "OPEN" | "CLOSED" = $state("OPEN")
-
-    let full_name = $derived(name + " " + "Smith")
-
-    // function toggle(){
-    //     status = status === "OPEN" ? "CLOSED" : "OPEN";
-    // }
-
-    function onclick(){
-        status = status === 'OPEN' ? 'CLOSED' : 'OPEN'
-    }
+	let formState = $state({
+		name: '',
+		birthday: '',
+		step: 0,
+		error: ''
+	});
 </script>
 
-<Header {name} fake_name="lallu"/>
+<main>
+	<p>Step : {formState.step}</p>
 
-<input type="text" bind:value={name} />
+	{#if formState.error}
+		<p class="error">{formState.error}</p>
+	{/if}
 
-
-<p>The store is now {status}</p>
-<button onclick={onclick}>Toggle Status</button>
-<h2>{full_name}</h2>
-
-<!-- COOL STUFF -->
-<!-- <button {onclick}>Toggle Status</button>
--->
-
-<button
-    onclick={()=>{
-        status = status === 'OPEN' ? 'CLOSED' : 'OPEN';
-    }}
->
-    Toggle Status /- inline function
-</button>
-
+	{#if formState.step == 0}
+		<div>
+			<label for="name">Your Name</label>
+			<input type="text" id="name" bind:value={formState.name} />
+		</div>
+		<button
+			onclick={() => {
+				if (formState.name !== '') {
+					formState.step = formState.step + 1;
+				} else {
+					formState.error = 'Your name is Empty. Please write Your name.';
+				}
+			}}>Next</button
+		>
+	{:else if formState.step == 1}
+		<div>
+			<label for="bday">Your BirthDay</label>
+			<input type="date" id="bday" bind:value={formState.birthday} />
+		</div>
+		<button
+			onclick={() => {
+				if (formState.birthday !== '') {
+					formState.step = formState.step + 1;
+                    formState.error = '';
+				} else {
+					formState.error = 'Your BirthDay is Empty. Please write Your BirthDay.';
+				}
+			}}>Next</button
+		>
+	{/if}
+</main>
 
 <style>
-    input{
-        padding: 4px 8px;
-    }
+	.error {
+		background-color: tomato;
+        color:white;
+        border-radius: 4px;
+        padding: 10px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	}
 </style>
