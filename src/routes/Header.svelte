@@ -1,45 +1,61 @@
 <script>
-</script>
-
-<header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
+    export let logo = "Logo";
+    export let links = [
+      { name: "Home", href: "/" },
+      { name: "About", href: "/about" },
+      { name: "Services", href: "/services" },
+      { name: "Contact", href: "/contact" }
+    ];
+  </script>
+  
+  <header class="header">
+    <div class="logo">
+      {#if typeof logo === 'string'}
+        <span>{logo}</span>
+      {:else}
+        {logo}
+      {/if}
+    </div>
+  
+    <nav class="navbar">
+      {#each links as { name, href }}
+        <a href={href} class="nav-link">{name}</a>
+      {/each}
     </nav>
-</header>
-
-
-<style>
-    header{
-        background-color:chocolate;
-        display: flex;
-        justify-content:end;
-        align-items: center;
+  </header>
+  
+  <style>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #333;
+      color: #fff;
+      
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
-    nav{
-        padding: 0px 10px;
+  
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
     }
-    ul{
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        list-style-type: none;
-        
+  
+    .navbar {
+      display: flex;
+      gap: 1.5rem;
     }
-
-    li > a{
-        margin-left: 16px;
-        text-decoration: none;
-        font-family: Helvetica, sans-serif;
-        font-weight: bold;
-        color:white;
-
+  
+    .nav-link {
+      text-decoration: none;
+      color: #fff;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
-    li > a:hover{
-        color:black;
-        transition: color 0.3s ease-in-out;
+  
+    .nav-link:hover {
+      color: #4CAF50; /* Highlight color */
     }
-</style>
+  </style>
+  
