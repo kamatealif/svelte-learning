@@ -17,9 +17,11 @@
         background-color:chocolate;
         display: flex;
         justify-content:end;
-        padding:8px 16px;
+        align-items: center;
     }
-
+    nav{
+        padding: 0px 10px;
+    }
     ul{
         display:flex;
         justify-content: center;
