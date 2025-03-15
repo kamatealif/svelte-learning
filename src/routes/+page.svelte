@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Header from './Header.svelte';
+	import Card from './Card.svelte';
+import Header from './Header.svelte';
 
 	let formState = $state({
 		name: '',
@@ -66,6 +67,11 @@
 
     {@render formStep({question:"What's your name", id:"name", type:"text"})}
 </main>
+
+<Card>
+    <h2>Card</h2>
+    <p>This is a card component</p>
+</Card>
 
 <!-- resuable functions like react -->
 
