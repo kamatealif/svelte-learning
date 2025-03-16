@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Card from './Card.svelte';
-import Header from './Header.svelte';
+	import EachLoops from './EachLoops.svelte';
+	import Header from './Header.svelte';
 
 	let formState = $state({
 		name: '',
@@ -65,31 +66,29 @@ import Header from './Header.svelte';
 		</button>
 	{/if}
 
-    {@render formStep({question:"What's your name", id:"name", type:"text"})}
+	{@render formStep({ question: "What's your name", id: 'name', type: 'text' })}
 </main>
 
 <Card>
-    <h2>Card</h2>
-    <p>This is a card component</p>
+	<h2>Card</h2>
+	<p>This is a card component</p>
 </Card>
 
 <!-- resuable functions like react -->
 
-{#snippet formStep({question,id, type} : {
-    question: string,
-    type: string,
-    id: string
-})}
-    <article>
-        <div>
-            <label for={id}>{question}</label>
-            <input {type} {id} bind:value={formState[id]}>
-        </div>
-    </article>
+{#snippet formStep({ question, id, type }: { question: string; type: string; id: string })}
+	<article>
+		<div>
+			<label for={id}>{question}</label>
+			<input {type} {id} bind:value={formState[id]} />
+		</div>
+	</article>
 {/snippet}
 
+<h1>Looping in svelte</h1>
+
+<EachLoops/>
 <style>
-	
 	.form-container {
 		max-width: 400px;
 		margin: 2rem auto;
