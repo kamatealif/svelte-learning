@@ -2,6 +2,7 @@
 	import Card from './Card.svelte';
 	import EachLoops from './EachLoops.svelte';
 	import Header from './Header.svelte';
+	import Thing from './Thing.svelte';
 
 	let formState = $state({
 		name: '',
@@ -9,6 +10,14 @@
 		step: 0,
 		error: ''
 	});
+
+	let things = $state([
+		{ id: 1, fruit_name: 'apple' },
+		{ id: 2, fruit_name: 'banana' },
+		{ id: 3, fruit_name: 'carrot' },
+		{ id: 4, fruit_name: 'doughnut' },
+		{ id: 5, fruit_name: 'egg' }
+	]);
 </script>
 
 <Header
@@ -87,7 +96,18 @@
 
 <h1>Looping in svelte</h1>
 
-<EachLoops/>
+<EachLoops />
+
+<hr />
+
+<h1>Looping with id</h1>
+{#each things as thing (thing.id)}
+	<Thing name={thing.fruit_name} />
+{/each}
+
+<button onclick={() => things.shift()}>
+	Remove first thing
+</button>
 <style>
 	.form-container {
 		max-width: 400px;
