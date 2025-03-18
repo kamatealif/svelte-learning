@@ -1,4 +1,5 @@
 <script lang="ts">
+	import AsyncMasterpiece from './AsyncMasterpiece.svelte';
 	import Card from './Card.svelte';
 	import EachLoops from './EachLoops.svelte';
 	import Header from './Header.svelte';
@@ -105,9 +106,11 @@
 	<Thing name={thing.fruit_name} />
 {/each}
 
-<button onclick={() => things.shift()}>
-	Remove first thing
-</button>
+<button onclick={() => things.shift()}> Remove first thing </button>
+
+<h2>Async MasterPiece</h2>
+<AsyncMasterpiece />
+
 <style>
 	.form-container {
 		max-width: 400px;
