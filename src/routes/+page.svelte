@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AsyncMasterpiece from './AsyncMasterpiece.svelte';
 	import Card from './Card.svelte';
+	import DomEvents from './DomEvents.svelte';
 	import EachLoops from './EachLoops.svelte';
 	import Header from './Header.svelte';
 	import Thing from './Thing.svelte';
@@ -110,6 +111,9 @@
 
 <h2>Async MasterPiece</h2>
 <AsyncMasterpiece />
+
+<h2>DOM Events</h2>
+<DomEvents />
 
 <style>
 	.form-container {
