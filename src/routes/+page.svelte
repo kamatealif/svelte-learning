@@ -4,6 +4,7 @@
 	import DomEvents from './DomEvents.svelte';
 	import EachLoops from './EachLoops.svelte';
 	import Header from './Header.svelte';
+	import InlineHandler from './InlineHandler.svelte';
 	import Thing from './Thing.svelte';
 
 	let formState = $state({
@@ -114,6 +115,9 @@
 
 <h2>DOM Events</h2>
 <DomEvents />
+
+<h2>Inline handler</h2>
+<InlineHandler />
 
 <style>
 	.form-container {
