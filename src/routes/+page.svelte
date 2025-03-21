@@ -6,6 +6,7 @@
 	import Header from './Header.svelte';
 	import InlineHandler from './InlineHandler.svelte';
 	import Thing from './Thing.svelte';
+	import PassingFunctionToComp from './PassingFunctionToComp.svelte';
 
 	let formState = $state({
 		name: '',
@@ -118,6 +119,9 @@
 
 <h2>Inline handler</h2>
 <InlineHandler />
+
+<h2>passing functions as a props</h2>
+<PassingFunctionToComp />
 
 <style>
 	.form-container {
