@@ -7,14 +7,15 @@
 	import InlineHandler from './InlineHandler.svelte';
 	import Thing from './Thing.svelte';
 	import PassingFunctionToComp from './PassingFunctionToComp.svelte';
+	import Spread from './Spread.svelte';
 
+	import horn from './horn.mp3';
 	let formState = $state({
 		name: '',
 		birthday: '',
 		step: 0,
 		error: ''
 	});
-
 	let things = $state([
 		{ id: 1, fruit_name: 'apple' },
 		{ id: 2, fruit_name: 'banana' },
@@ -22,6 +23,12 @@
 		{ id: 4, fruit_name: 'doughnut' },
 		{ id: 5, fruit_name: 'egg' }
 	]);
+	// const audio = new Audio();
+	// audio.src = horn;
+	// function honk() {
+	// 	audio.load();
+	// 	audio.play();
+	// }
 </script>
 
 <Header
@@ -122,6 +129,9 @@
 
 <h2>passing functions as a props</h2>
 <PassingFunctionToComp />
+
+<h2>Spreading Props</h2>
+<Spread onclick={honk} />
 
 <style>
 	.form-container {
