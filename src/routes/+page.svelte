@@ -10,6 +10,7 @@
 	import Spread from './Spread.svelte';
 
 	import horn from './horn.mp3';
+	import TextInput from './TextInput.svelte';
 	let formState = $state({
 		name: '',
 		birthday: '',
@@ -129,9 +130,13 @@
 
 <h2>passing functions as a props</h2>
 <PassingFunctionToComp />
-
+<!-- 
 <h2>Spreading Props</h2>
-<Spread onclick={honk} />
+<Spread onclick={honk} /> -->
+
+<hr />
+<h2>Text Input Binding</h2>
+<TextInput />
 
 <style>
 	.form-container {
