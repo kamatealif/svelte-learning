@@ -11,6 +11,7 @@
 
 	import horn from './horn.mp3';
 	import TextInput from './TextInput.svelte';
+	import NumericInput from './NumericInput.svelte';
 	let formState = $state({
 		name: '',
 		birthday: '',
@@ -137,6 +138,10 @@
 <hr />
 <h2>Text Input Binding</h2>
 <TextInput />
+
+<hr />
+<h2>Number input Binding</h2>
+<NumericInput />
 
 <style>
 	.form-container {
