@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AsyncMasterpiece from './AsyncMasterpiece.svelte';
-	import Card from './Card.svelte';
+	// import Card from './Card.svelte';
 	import DomEvents from './DomEvents.svelte';
 	import EachLoops from './EachLoops.svelte';
 	import Header from './Header.svelte';
@@ -12,12 +12,8 @@
 	import horn from './horn.mp3';
 	import TextInput from './TextInput.svelte';
 	import NumericInput from './NumericInput.svelte';
-	let formState = $state({
-		name: '',
-		birthday: '',
-		step: 0,
-		error: ''
-	});
+	import CheckBoxInput from './CheckBoxInput.svelte';
+
 	let things = $state([
 		{ id: 1, fruit_name: 'apple' },
 		{ id: 2, fruit_name: 'banana' },
@@ -43,70 +39,7 @@
 	]}
 />
 
-<main class="form-container">
-	<p class="step-indicator">Step: {formState.step + 1}</p>
-
-	{#if formState.error}
-		<p class="error-message">{formState.error}</p>
-	{/if}
-
-	{#if formState.step == 0}
-		<div class="form-group">
-			<label for="name">Your Name</label>
-			<input type="text" id="name" bind:value={formState.name} placeholder="Enter your name" />
-		</div>
-		<button
-			class="btn"
-			onclick={() => {
-				if (formState.name.trim() !== '') {
-					formState.step += 1;
-					formState.error = '';
-				} else {
-					formState.error = 'Your name is empty. Please enter your name.';
-				}
-			}}
-		>
-			Next
-		</button>
-	{:else if formState.step == 1}
-		<div class="form-group">
-			<label for="bday">Your Birthday</label>
-			<input type="date" id="bday" bind:value={formState.birthday} />
-		</div>
-		<button
-			class="btn"
-			onclick={() => {
-				if (formState.birthday.trim() !== '') {
-					formState.step += 1;
-					formState.error = '';
-				} else {
-					formState.error = 'Your birthday is empty. Please enter your birthday.';
-				}
-			}}
-		>
-			Next
-		</button>
-	{/if}
-
-	{@render formStep({ question: "What's your name", id: 'name', type: 'text' })}
-</main>
-
-<Card>
-	<h2>Card</h2>
-	<p>This is a card component</p>
-</Card>
-
-<!-- resuable functions like react -->
-
-{#snippet formStep({ question, id, type }: { question: string; type: string; id: string })}
-	<article>
-		<div>
-			<label for={id}>{question}</label>
-			<input {type} {id} bind:value={formState[id]} />
-		</div>
-	</article>
-{/snippet}
-
+<hr />
 <h1>Looping in svelte</h1>
 
 <EachLoops />
@@ -119,16 +52,17 @@
 {/each}
 
 <button onclick={() => things.shift()}> Remove first thing </button>
-
+<hr />
 <h2>Async MasterPiece</h2>
 <AsyncMasterpiece />
-
+<hr />
 <h2>DOM Events</h2>
 <DomEvents />
-
+<hr />
 <h2>Inline handler</h2>
 <InlineHandler />
 
+<hr />
 <h2>passing functions as a props</h2>
 <PassingFunctionToComp />
 <!-- 
@@ -142,6 +76,10 @@
 <hr />
 <h2>Number input Binding</h2>
 <NumericInput />
+
+<hr />
+<h2>Check box Input Bindings</h2>
+<CheckBoxInput />
 
 <style>
 	.form-container {
