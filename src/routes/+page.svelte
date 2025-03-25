@@ -13,6 +13,7 @@
 	import TextInput from './TextInput.svelte';
 	import NumericInput from './NumericInput.svelte';
 	import CheckBoxInput from './CheckBoxInput.svelte';
+	import SelectBinding from './SelectBinding.svelte';
 
 	let things = $state([
 		{ id: 1, fruit_name: 'apple' },
@@ -80,6 +81,10 @@
 <hr />
 <h2>Check box Input Bindings</h2>
 <CheckBoxInput />
+
+<hr />
+<h2>Select binding</h2>
+<SelectBinding />
 
 <style>
 	.form-container {
