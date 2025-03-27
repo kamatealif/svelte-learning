@@ -15,6 +15,7 @@
 	import CheckBoxInput from './CheckBoxInput.svelte';
 	import SelectBinding from './SelectBinding.svelte';
 	import TextAreaBinding from './TextAreaBinding.svelte';
+	import ClassAttributes from './ClassAttributes.svelte';
 
 	let things = $state([
 		{ id: 1, fruit_name: 'apple' },
@@ -90,6 +91,13 @@
 <hr />
 <h2>Text Area Binding</h2>
 <TextAreaBinding />
+
+<hr />
+<h2>Class Attributes</h2>
+<p>
+	class attributes are the attributes that we can use to modify the class as per the user events
+</p>
+<ClassAttributes />
 
 <style>
 	.form-container {
