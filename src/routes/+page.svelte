@@ -1,21 +1,22 @@
 <script lang="ts">
-	import AsyncMasterpiece from './AsyncMasterpiece.svelte';
+	import AsyncMasterpiece from './components/AsyncMasterpiece.svelte';
 	// import Card from './Card.svelte';
-	import DomEvents from './DomEvents.svelte';
-	import EachLoops from './EachLoops.svelte';
-	import Header from './Header.svelte';
-	import InlineHandler from './InlineHandler.svelte';
-	import Thing from './Thing.svelte';
-	import PassingFunctionToComp from './PassingFunctionToComp.svelte';
-	import Spread from './Spread.svelte';
+	import DomEvents from './components/DomEvents.svelte';
+	import EachLoops from './components/EachLoops.svelte';
+	import Header from './components/Header.svelte';
+	import InlineHandler from './components//InlineHandler.svelte';
+	import Thing from './components/Thing.svelte';
+	import PassingFunctionToComp from './components/PassingFunctionToComp.svelte';
+	import Spread from './components/Spread.svelte';
 
-	import horn from './horn.mp3';
-	import TextInput from './TextInput.svelte';
-	import NumericInput from './NumericInput.svelte';
-	import CheckBoxInput from './CheckBoxInput.svelte';
-	import SelectBinding from './SelectBinding.svelte';
-	import TextAreaBinding from './TextAreaBinding.svelte';
-	import ClassAttributes from './ClassAttributes.svelte';
+	// import horn from './components/horn.mp3';
+	import TextInput from './components/TextInput.svelte';
+	import NumericInput from './components/NumericInput.svelte';
+	import CheckBoxInput from './components/CheckBoxInput.svelte';
+	import SelectBinding from './components/SelectBinding.svelte';
+	import TextAreaBinding from './components/TextAreaBinding.svelte';
+	import ClassAttributes from './components/ClassAttributes.svelte';
+	import StyleAttribute from './components/StyleAttribute.svelte';
 
 	let things = $state([
 		{ id: 1, fruit_name: 'apple' },
@@ -98,6 +99,10 @@
 	class attributes are the attributes that we can use to modify the class as per the user events
 </p>
 <ClassAttributes />
+
+<hr />
+<h2>Style Attributes</h2>
+<StyleAttribute />
 
 <style>
 	.form-container {

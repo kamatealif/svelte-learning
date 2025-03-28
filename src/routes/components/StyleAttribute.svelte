@@ -4,7 +4,13 @@
 
 <div class="container">
 	Flip the card
-	<button class="card {flipped ? 'flipped' : ''}" onclick={() => (flipped = !flipped)}>
+	<button
+		class={['card', { flipped }]}
+		style="transform:{flipped
+			? 'rotateY(0)'
+			: ''}; --bg-1:palegoldenrod; --bg-2: black; --bg-3:goldenrod"
+		onclick={() => (flipped = !flipped)}
+	>
 		<div class="front">
 			<span class="symbol">♠</span>
 		</div>
@@ -38,7 +44,6 @@
 		padding: 0;
 		user-select: none;
 		cursor: pointer;
-		background-color: rgba(0, 0, 0, 0.646);
 	}
 
 	.card.flipped {
@@ -64,8 +69,8 @@
 
 	.front {
 		background:
-			url(../../static/Svelte.svg) no-repeat 5em 5em,
-			url(../../static/Svelte.svg) no-repeat calc(100% - 5em) calc(100% - 5em);
+			url(../../../static/Svelte.svg) no-repeat 5em 5em,
+			url(../../../static/Svelte.svg) no-repeat calc(100% - 5em) calc(100% - 5em);
 		background-size:
 			8em 8em,
 			8em 8em;
