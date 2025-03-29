@@ -17,6 +17,7 @@
 	import TextAreaBinding from './components/TextAreaBinding.svelte';
 	import ClassAttributes from './components/ClassAttributes.svelte';
 	import StyleAttribute from './components/StyleAttribute.svelte';
+	import ComponenetStyles from './components/ComponenetStyles.svelte';
 
 	let things = $state([
 		{ id: 1, fruit_name: 'apple' },
@@ -104,80 +105,6 @@
 <h2>Style Attributes</h2>
 <StyleAttribute />
 
-<style>
-	.form-container {
-		max-width: 400px;
-		margin: 2rem auto;
-		padding: 2rem;
-		background-color: #f9f9f9;
-		border: 2px solid #ddd;
-		border-radius: 12px;
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-		text-align: center;
-		font-family: 'Arial', sans-serif;
-	}
-
-	.step-indicator {
-		font-size: 1.2rem;
-		margin-bottom: 1rem;
-		color: #4caf50;
-		font-weight: bold;
-	}
-
-	.error-message {
-		width: auto;
-		font-size: small;
-		color: #e74c3c;
-		background-color: #fee;
-		border: 1px solid #e74c3c;
-		padding: 1rem;
-		border-radius: 6px;
-		margin-bottom: 1rem;
-	}
-
-	.form-group {
-		margin-bottom: 1.5rem;
-		text-align: left;
-	}
-
-	.form-group label {
-		display: block;
-		margin-bottom: 0.5rem;
-		font-weight: bold;
-		color: #333;
-	}
-
-	.form-group input {
-		width: 95%;
-		padding-block: 1rem;
-		border: 2px solid #ddd;
-		border-radius: 8px;
-		outline: none;
-		transition: border 0.3s;
-		padding-inline: 0.5rem;
-	}
-
-	.form-group input:focus {
-		border-color: #4caf50;
-		box-shadow: 0 0 6px rgba(76, 175, 80, 0.3);
-	}
-
-	.btn {
-		background-color: #4caf50;
-		color: #fff;
-		border: none;
-		padding: 0.8rem 2rem;
-		border-radius: 8px;
-		cursor: pointer;
-		transition: background-color 0.3s;
-	}
-
-	.btn:hover {
-		background-color: #45a049;
-	}
-
-	.btn:focus {
-		outline: none;
-		box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
-	}
-</style>
+<hr />
+<h2>Components Styling</h2>
+<ComponenetStyles />
