@@ -1,7 +1,18 @@
 <script>
 	import Canvas from '../components/Canvas.svelte';
 
-	const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet', 'white', 'black'];
+	const colors = [
+		'red',
+		'orange',
+		'yellow',
+		'green',
+		'blue',
+		'indigo',
+		'violet',
+		'white',
+		'black',
+		'tomato'
+	];
 
 	let selected = $state(colors[0]);
 	let size = $state(10);
