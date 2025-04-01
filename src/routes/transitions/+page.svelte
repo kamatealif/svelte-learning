@@ -23,7 +23,7 @@
 		color: #fff;
 		font-family:
 			'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana,
-			sans-serif;
+			sans-serif;}
 	}
 	.container {
 		max-width: 860px;
