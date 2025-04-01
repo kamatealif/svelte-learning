@@ -1,6 +1,6 @@
 <script>
 	import { fade } from 'svelte/transition';
-
+	import { fly } from 'svelte/transition';
 	let visible = $state(false);
 </script>
 
@@ -17,6 +17,18 @@
 	</div>
 
 	<hr />
+
+	<div class="fly-transition">
+		<h1>fly Transition</h1>
+		<label>
+			<input type="checkbox" bind:checked={visible} />
+			visible
+		</label>
+
+		{#if visible}
+			<p transition:fly={{ y: 200, duration: 2000 }}>Fade In Out</p>
+		{/if}
+	</div>
 </div>
 
 <style>
