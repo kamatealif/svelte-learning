@@ -62,4 +62,9 @@
 		padding: 1rem;
 		border: 1px solid #ccc;
 	}
+	kbd {
+		background-color: #cccccc36;
+		padding: 2px 4px;
+		border-radius: 4px;
+	}
 </style>
