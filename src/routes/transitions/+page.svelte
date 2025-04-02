@@ -1,6 +1,5 @@
 <script>
-	import { fade } from 'svelte/transition';
-	import { fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	let visible = $state(false);
 </script>
 
@@ -27,6 +26,22 @@
 
 		{#if visible}
 			<p transition:fly={{ y: 200, duration: 2000 }}>Fade In Out</p>
+		{/if}
+	</div>
+	<hr />
+	<div class="fly-transition">
+		<h1>In and Out Transition</h1>
+		<p>
+			Instead of the <kbd>transition</kbd> directive, and element can have an <kbd>in</kbd> or and
+			<kbd>out</kbd> directive, or both together
+		</p>
+		<label>
+			<input type="checkbox" bind:checked={visible} />
+			visible
+		</label>
+
+		{#if visible}
+			<p in:fly={{ y: 200, duration: 2000 }} out:fade>Flies in, Fades out</p>
 		{/if}
 	</div>
 </div>
