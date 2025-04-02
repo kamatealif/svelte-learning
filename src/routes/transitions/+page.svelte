@@ -1,6 +1,7 @@
 <script>
 	import { fade, fly } from 'svelte/transition';
 	let visible = $state(false);
+	let status = $state('waiting...');
 </script>
 
 <div class="container">
@@ -44,6 +45,30 @@
 			<p in:fly={{ y: 200, duration: 2000 }} out:fade>Flies in, Fades out</p>
 		{/if}
 	</div>
+
+	<hr />
+	<div class="fly-transition">
+		<h1>Transition Events</h1>
+		It can be useful to know when transitions are beginning and ending. Svelte dispatches events that
+		you can listen to like any other DOM event:
+		<label>
+			<input type="checkbox" bind:checked={visible} />
+			visible
+		</label>
+
+		{#if visible}
+			<p
+				transition:fly={{ y: 200, duration: 2000 }}
+				onintrostart={() => (status = 'intro started')}
+				onoutrostart={() => (status = 'outro started')}
+				onintroend={() => (status = 'intro ended')}
+				onoutroend={() => (status = 'outro ended')}
+			>
+				Flies in, Fades out
+			</p>
+		{/if}
+		<p>{status}</p>
+	</div>
 </div>
 
 <style>
@@ -57,7 +82,7 @@
 
 	.container {
 		max-width: 860px;
-		height: 100vh;
+		height: 100%;
 		margin: 0 auto;
 		padding: 1rem;
 		border: 1px solid #ccc;
