@@ -86,7 +86,7 @@
 		</label>
 
 		<label>
-			<input type="range" bind:value={i} max="10" />
+			<input type="number" bind:value={i} max="10" />
 		</label>
 
 		{#if showItems}
