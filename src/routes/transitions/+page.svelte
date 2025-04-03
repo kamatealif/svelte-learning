@@ -2,6 +2,13 @@
 	import { fade, fly } from 'svelte/transition';
 	let visible = $state(false);
 	let status = $state('waiting...');
+
+	import { slide } from 'svelte/transition';
+
+	let items = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+
+	let showItems = $state(true);
+	let i = $state(5);
 </script>
 
 <div class="container">
@@ -69,6 +76,27 @@
 		{/if}
 		<p>{status}</p>
 	</div>
+	<hr />
+	<div class="fly-transition">
+		<h1>Global Transitions</h1>
+
+		<label>
+			<input type="checkbox" bind:checked={showItems} />
+			show list
+		</label>
+
+		<label>
+			<input type="range" bind:value={i} max="10" />
+		</label>
+
+		{#if showItems}
+			{#each items.slice(0, i) as item}
+				<div transition:slide|global class="global-transition">
+					{item}
+				</div>
+			{/each}
+		{/if}
+	</div>
 </div>
 
 <style>
@@ -91,5 +119,9 @@
 		background-color: #cccccc36;
 		padding: 2px 4px;
 		border-radius: 4px;
+	}
+	.global-transition {
+		padding: 0.5em 0;
+		border-top: 1px solid #eee;
 	}
 </style>
