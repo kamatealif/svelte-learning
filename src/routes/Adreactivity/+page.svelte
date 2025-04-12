@@ -1,4 +1,18 @@
 <script>
+	import { SvelteDate } from 'svelte/reactivity';
+	let date = new SvelteDate();
+
+	const pad = (n) => (n < 10 ? '0' + n : n);
+
+	$effect(() => {
+		const interval = setInterval(() => {
+			date.setTime(Date.now());
+		}, 1000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
 	const MAX_SIZE = 200;
 
 	class Box {
@@ -20,28 +34,47 @@
 	const box = new Box(100, 100);
 </script>
 
-<div>
-	<h1>Reactive Classes</h1>
-	<label>
-		<input type="range" bind:value={box.width} min={0} max={MAX_SIZE} />
-		{box.width}
-	</label>
+<div class="container">
+	<div>
+		<h1>Reactive Classes</h1>
+		<label>
+			<input type="range" bind:value={box.width} min={0} max={MAX_SIZE} />
+			{box.width}
+		</label>
 
-	<label>
-		<input type="range" bind:value={box.height} min={0} max={MAX_SIZE} />
-		{box.height}
-	</label>
+		<label>
+			<input type="range" bind:value={box.height} min={0} max={MAX_SIZE} />
+			{box.height}
+		</label>
 
-	<button onclick={() => box.embiggen(10)}>embiggen</button>
+		<button onclick={() => box.embiggen(10)}>embiggen</button>
 
-	<hr />
+		<hr />
 
-	<div class="box" style:width="{box.width}px" style:height="{box.height}px">
-		{box.area}
+		<div class="box" style:width="{box.width}px" style:height="{box.height}px">
+			{box.area}
+		</div>
+
+		<hr />
+
+		<div>
+			<h1>Reactive Date</h1>
+			<p>The time is {date.getHours()}:{pad(date.getMinutes())}:{pad(date.getSeconds())}</p>
+		</div>
 	</div>
 </div>
 
 <style>
+	.container {
+		max-width: 860px;
+		height: 100%;
+		margin: 0 auto;
+		padding: 1rem;
+		border: 1px solid #ccc;
+	}
+	.container h1 {
+		margin: 0;
+	}
 	label {
 		display: flex;
 		align-items: center;
