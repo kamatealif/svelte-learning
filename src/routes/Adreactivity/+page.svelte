@@ -71,6 +71,8 @@
 		margin: 0 auto;
 		padding: 1rem;
 		border: 1px solid #ccc;
+		display: flex;
+		flex-direction: column;
 	}
 	.container h1 {
 		margin: 0;
