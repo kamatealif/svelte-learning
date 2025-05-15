@@ -33,7 +33,11 @@
 
 	const box = new Box(100, 100);
 </script>
-
+<nav>
+	<ul>
+		<li><a href="Adreactivity/gettersandsetters">getters and setters</a></li>
+	</ul>
+</nav>
 <div class="container">
 	<div>
 		<h1>Reactive Classes</h1>
@@ -65,6 +69,42 @@
 </div>
 
 <style>
+	nav{
+		background: hsl(15 100 50);
+		padding: 1rem;
+		color: white;
+		margin-bottom: 1rem;
+
+	}
+
+	nav ul{
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		gap: 1rem;
+	}
+	nav li{
+		display: inline-block;
+	}
+	nav li:hover{
+		text-decoration: underline;
+	}
+	nav li:active{
+		text-decoration: underline;
+	}
+	nav li:focus{
+		text-decoration: underline;
+	}
+	nav li:focus-within{
+		text-decoration: underline;
+	}
+	nav a{
+		color: white;
+		text-decoration: none;
+
+	}
+
 	.container {
 		max-width: 860px;
 		height: 100%;
